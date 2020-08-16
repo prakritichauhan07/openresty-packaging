@@ -67,7 +67,7 @@ pcre-build: | pcre-clean pcre-download
 	tar xf openresty-pcre_$(PCRE_VER).orig.tar.bz2 --strip-components=1 -C openresty-pcre
 	cd openresty-pcre \
 		&& tpage --define distro=$(DISTRO) debian/changelog.tt2 > debian/changelog \
-		&& debuild $(OPTS) -j$(JOBS)
+		&& debuild $(OPTS) -j$(JOBS) -i -us -uc -b
 	#for f in openresty-pcre*.deb; do debsigs --sign=origin -K D5EDEB74 $$f || exit 1; done
 	#if [ -f ./upload ]; then ./upload || exit 1; fi
 
@@ -92,7 +92,7 @@ openssl-build: | openssl-clean openssl-download
 	tar xf openresty-openssl_$(SSL_VER).orig.tar.gz --strip-components=1 -C openresty-openssl
 	cd openresty-openssl \
 		&& tpage --define distro=$(DISTRO) debian/changelog.tt2 > debian/changelog \
-		&& debuild $(OPTS) -j$(JOBS)
+		&& debuild $(OPTS) -j$(JOBS) -i -us -uc -b
 	#for f in openresty-openssl*.deb; do debsigs --sign=origin -K D5EDEB74 $$f || exit 1; done
 	#if [ -f ./upload ]; then ./upload || exit 1; fi
 
@@ -221,7 +221,7 @@ openresty-debug-build: | openresty-debug-clean openresty-debug-download
 	tar xf openresty-debug_$(OR_VER).orig.tar.gz --strip-components=1 -C openresty-debug
 	cd openresty-debug \
 		&& tpage --define distro=$(DISTRO) debian/changelog.tt2 > debian/changelog \
-		&& debuild -sa $(OPTS) -j$(JOBS)
+		&& debuild -sa $(OPTS) -j$(JOBS) -i -us -uc -b
 	#for f in openresty-debug*.deb; do debsigs --sign=origin -K D5EDEB74 $$f || exit 1; done
 	#if [ -f ./upload ]; then ./upload || exit 1; fi
 
