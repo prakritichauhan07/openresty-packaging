@@ -45,7 +45,7 @@ zlib-build: | zlib-clean zlib-download
 		&& tpage --define distro=$(DISTRO) debian/changelog.tt2 > debian/changelog \
 		&& debuild $(OPTS) -j$(JOBS)
 	#for f in *.deb; do debsigs --sign=origin -K D5EDEB74 $$f || exit 1; done
-	if [ -f ./upload ]; then ./upload || exit 1; fi
+	#if [ -f ./upload ]; then ./upload || exit 1; fi
 
 .PHONY: zlib-clean
 zlib-clean:
@@ -69,7 +69,7 @@ pcre-build: | pcre-clean pcre-download
 		&& tpage --define distro=$(DISTRO) debian/changelog.tt2 > debian/changelog \
 		&& debuild $(OPTS) -j$(JOBS)
 	#for f in openresty-pcre*.deb; do debsigs --sign=origin -K D5EDEB74 $$f || exit 1; done
-	if [ -f ./upload ]; then ./upload || exit 1; fi
+	#if [ -f ./upload ]; then ./upload || exit 1; fi
 
 .PHONY: pcre-clean
 pcre-clean:
@@ -94,7 +94,7 @@ openssl-build: | openssl-clean openssl-download
 		&& tpage --define distro=$(DISTRO) debian/changelog.tt2 > debian/changelog \
 		&& debuild $(OPTS) -j$(JOBS)
 	#for f in openresty-openssl*.deb; do debsigs --sign=origin -K D5EDEB74 $$f || exit 1; done
-	if [ -f ./upload ]; then ./upload || exit 1; fi
+	#if [ -f ./upload ]; then ./upload || exit 1; fi
 
 .PHONY: openssl-debug-download
 openssl-debug-download:
@@ -111,7 +111,7 @@ openssl-debug-build: | openssl-debug-clean openssl-debug-download
 		&& tpage --define distro=$(DISTRO) debian/changelog.tt2 > debian/changelog \
 		&& debuild -sa $(OPTS) -j$(JOBS)
 	#for f in openresty-openssl-debug*.deb; do debsigs --sign=origin -K D5EDEB74 $$f || exit 1; done
-	if [ -f ./upload ]; then ./upload || exit 1; fi
+	#if [ -f ./upload ]; then ./upload || exit 1; fi
 
 .PHONY: openssl-clean
 openssl-clean:
@@ -145,7 +145,7 @@ openssl111-build: | openssl111-clean openssl111-download
 		&& tpage --define distro=$(DISTRO) debian/changelog.tt2 > debian/changelog \
 		&& debuild $(OPTS) -j$(JOBS)
 	#for f in openresty-openssl111*.deb; do debsigs --sign=origin -K D5EDEB74 $$f || exit 1; done
-	if [ -f ./upload ]; then ./upload || exit 1; fi
+	#if [ -f ./upload ]; then ./upload || exit 1; fi
 
 .PHONY: openssl111-debug-download
 openssl111-debug-download:
@@ -163,7 +163,7 @@ openssl111-debug-build: | openssl111-debug-clean openssl111-debug-download
 		&& tpage --define distro=$(DISTRO) debian/changelog.tt2 > debian/changelog \
 		&& debuild -sa $(OPTS) -j$(JOBS)
 	#for f in openresty-openssl111-debug*.deb; do debsigs --sign=origin -K D5EDEB74 $$f || exit 1; done
-	if [ -f ./upload ]; then ./upload || exit 1; fi
+	#if [ -f ./upload ]; then ./upload || exit 1; fi
 
 .PHONY: openssl111-clean
 openssl111-clean:
@@ -196,7 +196,7 @@ openresty-build: | openresty-clean openresty-download
 		&& tpage --define distro=$(DISTRO) debian/changelog.tt2 > debian/changelog \
 		&& debuild $(OPTS) -j$(JOBS)
 	#for f in openresty*.deb; do debsigs --sign=origin -K D5EDEB74 $$f || exit 1; done
-	if [ -f ./upload ]; then ./upload || exit 1; fi
+	#if [ -f ./upload ]; then ./upload || exit 1; fi
 
 .PHONY: openresty-clean
 openresty-clean:
@@ -223,7 +223,7 @@ openresty-debug-build: | openresty-debug-clean openresty-debug-download
 		&& tpage --define distro=$(DISTRO) debian/changelog.tt2 > debian/changelog \
 		&& debuild -sa $(OPTS) -j$(JOBS)
 	#for f in openresty-debug*.deb; do debsigs --sign=origin -K D5EDEB74 $$f || exit 1; done
-	if [ -f ./upload ]; then ./upload || exit 1; fi
+	#if [ -f ./upload ]; then ./upload || exit 1; fi
 
 .PHONY: openresty-debug-clean
 openresty-debug-clean:
@@ -250,7 +250,7 @@ openresty-valgrind-build: | openresty-valgrind-clean openresty-valgrind-download
 		&& tpage --define distro=$(DISTRO) debian/changelog.tt2 > debian/changelog \
 		&& debuild -sa $(OPTS) -j$(JOBS)
 	#for f in openresty-valgrind*.deb; do debsigs --sign=origin -K D5EDEB74 $$f || exit 1; done
-	if [ -f ./upload ]; then ./upload || exit 1; fi
+	#if [ -f ./upload ]; then ./upload || exit 1; fi
 
 .PHONY: openresty-valgrind-clean
 openresty-valgrind-clean:
@@ -283,7 +283,7 @@ lemplate-build: | lemplate-clean lemplate-download
 		&& tpage --define distro=$(DISTRO) debian/changelog.tt2 > debian/changelog \
 		&& debuild -sa $(OPTS) -j$(JOBS)
 	#for f in openresty-valgrind*.deb; do debsigs --sign=origin -K D5EDEB74 $$f || exit 1; done
-	if [ -f ./upload ]; then ./upload || exit 1; fi
+	#if [ -f ./upload ]; then ./upload || exit 1; fi
 
 .PHONY: test-nginx-download
 test-nginx-download:
@@ -307,6 +307,6 @@ test-nginx-build: | test-nginx-clean test-nginx-download
 		&& tpage --define distro=$(DISTRO) debian/changelog.tt2 > debian/changelog \
 		&& debuild -sa $(OPTS) -j$(JOBS)
 	#for f in openresty-valgrind*.deb; do debsigs --sign=origin -K D5EDEB74 $$f || exit 1; done
-	if [ -f ./upload ]; then ./upload || exit 1; fi
+	#if [ -f ./upload ]; then ./upload || exit 1; fi
 
 ### Makefile ends here
