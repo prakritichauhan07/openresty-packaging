@@ -87,7 +87,7 @@ openssl-download:
 
 .PHONY: openssl-build
 openssl-build: | openssl-clean openssl-download
-	sudo apt-get -y -qq install openresty-zlib-dev
+	#sudo apt-get -y -qq install openresty-zlib-dev
 	rm -f *.deb *.debian.tar.xz *.dsc *.changes
 	tar xf openresty-openssl_$(SSL_VER).orig.tar.gz --strip-components=1 -C openresty-openssl
 	cd openresty-openssl \
@@ -155,8 +155,8 @@ openssl111-debug-download:
 
 .PHONY: openssl111-debug-build
 openssl111-debug-build: | openssl111-debug-clean openssl111-debug-download
-	sudo apt-get -y -qq install openresty-zlib-dev
-	sudo apt-get -y -qq --only-upgrade install openresty-zlib-dev
+	#sudo apt-get -y -qq install openresty-zlib-dev
+	#sudo apt-get -y -qq --only-upgrade install openresty-zlib-dev
 	rm -f *.deb *.debian.tar.xz *.dsc *.changes
 	tar xf openresty-openssl111-debug_$(SSL111_VER).orig.tar.gz --strip-components=1 -C openresty-openssl111-debug
 	cd openresty-openssl111-debug \
@@ -215,8 +215,8 @@ openresty-debug-download:
 
 .PHONY: openresty-debug-build
 openresty-debug-build: | openresty-debug-clean openresty-debug-download
-	sudo apt-get -y -qq install openresty-zlib-dev openresty-pcre-dev openresty-openssl111-debug-dev
-	sudo apt-get -y -qq --only-upgrade install openresty-zlib-dev openresty-pcre-dev openresty-openssl111-debug-dev
+	#sudo apt-get -y -qq install openresty-zlib-dev openresty-pcre-dev openresty-openssl111-debug-dev
+	#sudo apt-get -y -qq --only-upgrade install openresty-zlib-dev openresty-pcre-dev openresty-openssl111-debug-dev
 	rm -f *.deb *.debian.tar.xz *.dsc *.changes
 	tar xf openresty-debug_$(OR_VER).orig.tar.gz --strip-components=1 -C openresty-debug
 	cd openresty-debug \
