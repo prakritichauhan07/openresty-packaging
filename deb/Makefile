@@ -43,7 +43,7 @@ zlib-build: | zlib-clean zlib-download
 	tar xf openresty-zlib_$(ZLIB_VER).orig.tar.gz --strip-components=1 -C openresty-zlib
 	cd openresty-zlib \
 		&& tpage --define distro=$(DISTRO) debian/changelog.tt2 > debian/changelog \
-		&& debuild $(OPTS) -j$(JOBS)
+		&& debuild $(OPTS) -j$(JOBS) -i -us -uc -b
 	#for f in *.deb; do debsigs --sign=origin -K D5EDEB74 $$f || exit 1; done
 	#if [ -f ./upload ]; then ./upload || exit 1; fi
 
