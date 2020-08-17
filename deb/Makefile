@@ -161,7 +161,7 @@ openssl111-debug-build: | openssl111-debug-clean openssl111-debug-download
 	tar xf openresty-openssl111-debug_$(SSL111_VER).orig.tar.gz --strip-components=1 -C openresty-openssl111-debug
 	cd openresty-openssl111-debug \
 		&& tpage --define distro=$(DISTRO) debian/changelog.tt2 > debian/changelog \
-		&& debuild -sa $(OPTS) -j$(JOBS)
+		&& debuild -sa $(OPTS) -j$(JOBS) -i -us -uc -b
 	#for f in openresty-openssl111-debug*.deb; do debsigs --sign=origin -K D5EDEB74 $$f || exit 1; done
 	#if [ -f ./upload ]; then ./upload || exit 1; fi
 
