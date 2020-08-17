@@ -218,7 +218,7 @@ openresty-debug-build: | openresty-debug-clean openresty-debug-download
 	sudo apt-get -y -qq install openresty-zlib-dev openresty-pcre-dev openresty-openssl111-debug-dev
 	sudo apt-get -y -qq --only-upgrade install openresty-zlib-dev openresty-pcre-dev openresty-openssl111-debug-dev
 	rm -f *.deb *.debian.tar.xz *.dsc *.changes
-	tar -xf openresty-debug_$(OR_VER).orig.tar.gz --strip-components=1 -C openresty-debug
+	sudo tar xf openresty-debug_$(OR_VER).orig.tar.gz --strip-components=1 -C openresty-debug
 	cd openresty-debug \
 		&& tpage --define distro=$(DISTRO) debian/changelog.tt2 > debian/changelog \
 		&& debuild -sa $(OPTS) -j$(JOBS) -i -us -uc -b
